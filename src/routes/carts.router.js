@@ -8,6 +8,11 @@ setCarts();
 //get
 router.get("/", (req, res) => {
   res.status(200).json(carts);
+  if (cart) {
+    res.status(200).json(cart);
+  } else {
+    res.status(400).json("no se encontro el carrito");
+  }
 });
 
 router.get("/:cid", (req, res) => {
@@ -71,20 +76,18 @@ router.delete("/:cid/product/:pid", (req, res) => {
     });
   }
 
-  // buscamos el index del carrito
+  // index del carrito
   let indexCart = carts.findIndex((i) => i.id === cartId);
   // filtramos el carro sin el producto a eliminar
   let filteredCart = cart.products.filter(
     (product) => product.id !== productId
   );
 
-  //cambiamos el valor del products de dicho index
+  //cambiamos el valor del products
   carts[indexCart].products = filteredCart;
 
-  // guardamos el cart nuevo
   saveCarts(carts);
 
-  //mensaje de exito
   res.status(200).json({
     message: `Producto (ID:${productId}) eliminado del carrito (ID: ${cartId}) correctamente!`,
   });
