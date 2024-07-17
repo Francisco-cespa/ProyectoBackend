@@ -1,10 +1,12 @@
-{
-  "id": 1,
-  "title": "chau",
-  "description": "hola",
-  "code": "sfasfa",
-  "price": "888",
-  "status": true,
-  "stock": "10",
-  "category": "nueva"
-}
+[
+  {
+    "id": 1,
+    "title": "nuevo",
+    "description": "nuevo",
+    "code": "1234",
+    "price": "333",
+    "status": true,
+    "stock": "555",
+    "category": "put"
+  }
+]
