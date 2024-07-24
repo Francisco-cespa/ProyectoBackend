@@ -1,6 +1,6 @@
-const express = require("express");
-const router = express.Router();
-const { saveCarts, setCarts } = require("../utils/cartsUtils.js");
+import { Router } from "express";
+const router = Router();
+import { saveCarts, setCarts } from "../utils/cartsUtils.js";
 
 let carts = setCarts();
 setCarts();
@@ -8,8 +8,8 @@ setCarts();
 //get
 router.get("/", (req, res) => {
   res.status(200).json(carts);
-  if (cart) {
-    res.status(200).json(cart);
+  if (carts) {
+    res.status(200).json(carts);
   } else {
     res.status(400).json("no se encontro el carrito");
   }
@@ -93,4 +93,4 @@ router.delete("/:cid/product/:pid", (req, res) => {
   });
 });
 
-module.exports = router;
+export default router;

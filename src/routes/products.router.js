@@ -1,6 +1,6 @@
-const express = require("express");
-const router = express.Router();
-const { setProducts, saveProducts } = require("../utils/productsUtils.js");
+import { Router } from "express";
+const router = Router();
+import { setProducts, saveProducts } from "../utils/productsUtils.js";
 
 setProducts();
 
@@ -103,4 +103,4 @@ router.put("/:pid", (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
